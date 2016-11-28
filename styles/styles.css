@@ -127,6 +127,8 @@ body {
     background-color: rgba(0, 0, 0, 0.15); }
   body ::selection {
     background-color: rgba(0, 0, 0, 0.15); }
+  body button:focus {
+    outline: 0; }
 
 header {
   width: 100%;
@@ -168,10 +170,8 @@ nav button {
   text-transform: uppercase;
   letter-spacing: .1em;
   cursor: pointer; }
-
-nav .sections:hover,
-nav .sections:first-child:focus {
-  color: rgba(0, 0, 0, 0.5); }
+  nav button:hover, nav button:first-child:focus {
+    color: rgba(0, 0, 0, 0.5); }
 
 nav .fa {
   margin-left: 10px; }
@@ -179,7 +179,13 @@ nav .fa {
 header .menu {
   width: 63.025210084%;
   margin: 2px auto 0;
-  height: 75px; }
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease; }
+
+header .open {
+  height: 75px;
+  transition: all 0.5s ease; }
 
 header .menu ul {
   display: flex;
@@ -211,9 +217,74 @@ main {
   width: 63.025210084%;
   margin: 30px auto; }
 
-.trending {
+figcaption {
+  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 20px;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px; }
+
+.col p {
+  font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
+  line-height: 1.25em;
+  letter-spacing: .025em;
+  margin-bottom: 10px; }
+
+.col p:nth-of-type(1n+4) {
+  display: none; }
+
+.col p span {
+  font-weight: bold;
+  font-style: italic; }
+
+.contents {
+  margin-bottom: 10px; }
+
+.read-more {
+  height: 40px; }
+
+.read-more a {
+  display: inline-block;
+  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: black;
+  line-height: 40px;
+  border-top: 1px solid black;
+  transition: .3s ease; }
+  .read-more a:hover, .read-more a:focus {
+    background-color: rgba(0, 0, 0, 0.15); }
+
+.section {
+  position: relative;
+  border-top: 2px dotted black;
+  margin-bottom: 50px; }
+
+.section h1 {
+  display: inline-block;
+  font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
+  font-size: 1.9em;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.25em;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #E1B451;
+  padding: 0 12px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -22px); }
+
+.headlines {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 50px; }
 
 .col-main {
   width: 50%;
@@ -229,17 +300,7 @@ main {
 .side-02 {
   padding-left: 15px; }
 
-.col p {
-  font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
-  line-height: 1.25em;
-  letter-spacing: .025em;
-  margin-bottom: 10px; }
-
-.col p span {
-  font-weight: bold;
-  font-style: italic; }
-
-.col-main article h1 {
+.col-main .title h1 {
   font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
   font-size: 2.3em;
   font-weight: bold;
@@ -249,28 +310,6 @@ main {
   line-height: 1.25em;
   text-align: center;
   margin-bottom: 10px; }
-
-.col-main .title img {
-  margin-bottom: 10px; }
-
-.col-main .title figcaption {
-  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
-  font-weight: 300;
-  line-height: 1.025em;
-  padding-bottom: 12px;
-  border-bottom: 1px solid black;
-  margin-bottom: 20px; }
-
-.col-main .contents {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-  -webkit-column-width: 285px;
-  -moz-column-width: 285px;
-  column-width: 285px;
-  -webkit-column-gap: 1.25em;
-  -moz-column-gap: 1.25em;
-  column-gap: 1.25em; }
 
 .col-side h1 {
   font-family: "Franklin Gothic Demi Cond", "Arial Narrow", Arial, sans-serif;
@@ -290,7 +329,7 @@ main {
   font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
   font-weight: 300;
   margin-bottom: 0;
-  line-height: 1.25em; }
+  line-height: 20px; }
 
 .title .info p:first-child {
   font-size: 1em;
@@ -303,5 +342,75 @@ main {
   transition: .3s ease; }
   .title .info a:hover, .title .info a:focus {
     background-color: rgba(0, 0, 0, 0.15); }
+
+.stories {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-between; }
+
+.trending .stories article {
+  display: flex;
+  flex-direction: column;
+  width: 23.333333333%; }
+
+.trending .stories article figure {
+  position: relative; }
+
+.stories article h3 {
+  display: inline-block;
+  padding: 5px;
+  background-color: #E1B451;
+  font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
+  letter-spacing: .1em;
+  font-style: italic;
+  font-weight: bold;
+  position: absolute;
+  right: 0; }
+
+.stories figcaption {
+  border: none; }
+  .stories figcaption:hover, .stories figcaption:first-child:focus {
+    background-color: rgba(0, 0, 0, 0.15); }
+
+.lead-col {
+  display: flex;
+  flex-direction: column;
+  width: 48.333333333%;
+  position: relative; }
+
+.lead-col h2 {
+  font-family: "Franklin Gothic Demi Cond", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.75em;
+  letter-spacing: .05em;
+  line-height: 1.1em;
+  margin-bottom: 10px; }
+
+.sub-col {
+  width: 23.333333333%; }
+
+.sub-col h2 {
+  font-family: "Franklin Gothic Demi Cond", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: .05em;
+  line-height: 1.1em;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black; }
+  .sub-col h2 a {
+    text-decoration: none;
+    color: black; }
+    .sub-col h2 a:hover, .sub-col h2 a:first-child:focus {
+      color: rgba(0, 0, 0, 0.5); }
+
+.sub-col h2:last-child {
+  border: none; }
+
+.sub-col p {
+  font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
+  line-height: 1.25em;
+  letter-spacing: .025em;
+  margin-bottom: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

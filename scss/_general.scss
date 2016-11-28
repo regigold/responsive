@@ -12,6 +12,10 @@ body {
 //        color: $yellow;
         background-color: $black-15;
     }
+    
+    button:focus {
+        outline: 0;
+    }
 }
 
 // --- HEADER --- //
@@ -92,11 +96,10 @@ nav button {
     text-transform: uppercase;
     letter-spacing: .1em;
     cursor: pointer;
-}
-
-nav .sections:hover,
-nav .sections:first-child:focus {
-    color: $black-50;
+    &:hover,
+    &:first-child:focus {
+        color: $black-50;
+    }
 }
 
 nav .fa {
@@ -108,12 +111,21 @@ nav .fa {
 //        height: auto;
 //    }
 
+
+
 header .menu {
 //    width: 84.033613445%; // 1600 / 1904
     width: 63.025210084%; // 1200 / 1904 
     margin: 2px auto 0;
-    height: 75px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
+
+header .open {
+    height: 75px;
+    transition: all 0.5s ease;
+    }
 
 header .menu ul {
     display: flex;
@@ -147,7 +159,7 @@ header .menu a {
     }
 }
 
-// --- MAIN --- //
+// --- MAIN GLOBAL VARIABLES--- //
 
 main {
     //width: 84.033613445%; // 1600 / 1904
@@ -155,12 +167,93 @@ main {
     margin: 30px auto;
 }
 
+figcaption {
+    font-family: $robo;
+    font-weight: 300;
+    line-height: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
 
-// --- TRENDING --- //
+// content styles //
 
-.trending {
+.col p {
+    font-family: $heur;
+    line-height: 1.25em;
+    letter-spacing: .025em;
+    margin-bottom: 10px;
+}
+
+.col p:nth-of-type(1n+4) {
+    display: none;
+}
+
+.col p span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.contents {
+    margin-bottom: 10px;
+}
+
+// read more button styles //
+
+.read-more {
+    height: 40px
+}
+
+.read-more a {
+    display: inline-block;
+    font-family: $robo;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: black;
+    line-height: 40px;
+    border-top: 1px solid black;
+    transition: .3s ease;
+    &:hover,
+    &:focus {
+        background-color: $black-15;
+    }
+}
+
+// section headers //
+
+.section {
+    position: relative;
+    border-top: 2px dotted black;
+    margin-bottom: 50px;
+}
+
+.section h1 {
+    display: inline-block;
+    font-family: $heur;
+    font-size: 1.9em;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.25em;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: $yellow;
+    padding: 0 12px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -22px);
+}
+
+// --- HEADLINES --- //
+
+.headlines {
     display: flex;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .col-main {
@@ -182,21 +275,9 @@ main {
     padding-left: 15px;
 }
 
-.col p {
-    font-family: $heur;
-    line-height: 1.25em;
-    letter-spacing: .025em;
-    margin-bottom: 10px;
-}
+// main column styles //
 
-.col p span {
-    font-weight: bold;
-    font-style: italic;
-}
-
-// main column styles
-
-.col-main article h1 {
+.col-main .title h1 {
     font-family: $heur;
     font-size: 2.3em;
     font-weight: bold;
@@ -208,32 +289,24 @@ main {
     margin-bottom: 10px;
 }
 
-.col-main .title img {
-    margin-bottom: 10px;
-}
+//.col-main .title img {
+//    margin-bottom: 10px;
+//}
 
-.col-main .title figcaption {
-    font-family: $robo;
-    font-weight: 300;
-    line-height: 1.025em;
-    padding-bottom: 12px;
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
-}
+//.col-main .contents {
+//    -webkit-column-count: 2;
+//    -moz-column-count: 2;
+//    column-count: 2;
+//    -webkit-column-width: 285px;
+//    -moz-column-width: 285px;
+//    column-width: 285px;
+//    -webkit-column-gap: 1.25em;
+//    -moz-column-gap: 1.25em;
+//    column-gap: 1.25em;
+//    margin-bottom: 0;
+//}
 
-.col-main .contents {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-width: 285px;
-    -moz-column-width: 285px;
-    column-width: 285px;
-    -webkit-column-gap: 1.25em;
-    -moz-column-gap: 1.25em;
-    column-gap: 1.25em;
-}
-
-// side column styles
+// side column styles //
 
 .col-side h1 {
     font-family: $frank-demi;
@@ -255,7 +328,7 @@ main {
     font-family: $robo;
     font-weight: 300;
     margin-bottom: 0;
-    line-height: 1.25em;
+    line-height: 20px;
 }
 
 .title .info p:first-child {
@@ -274,3 +347,100 @@ main {
         background-color: $black-15;
     }
 }
+
+// --- TRENDING --- //
+
+.stories {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.trending .stories article {
+    display: flex;
+    flex-direction: column;
+    width: 23.333333333%; // 300px - 20px / 1200px
+}
+
+.trending .stories article figure {
+    position: relative;
+}
+
+.stories article h3 {
+    display: inline-block;
+    padding: 5px;
+    background-color: $yellow;
+    font-family: $heur;
+    letter-spacing: .1em;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+
+    right: 0;
+}
+
+.stories figcaption {
+    border: none;
+    &:hover,
+    &:first-child:focus {
+        background-color: $black-15;
+    }
+}
+
+
+// --- NEWS --- //
+
+.lead-col {
+    display: flex;
+    flex-direction: column;
+    width: 48.333333333%; // 600px - 20px / 1200px
+    position: relative;
+}
+
+.lead-col h2 {
+    font-family: $frank-demi;
+    text-transform: uppercase;
+    font-size: 1.75em;
+    letter-spacing: .05em;
+    line-height: 1.1em;
+    margin-bottom: 10px;
+}
+
+.sub-col {
+    width: 23.333333333%; // 300px - 20px / 1200px
+}
+
+.sub-col h2 {
+    font-family: $frank-demi;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: .05em;
+    line-height: 1.1em;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black; 
+    a{
+        text-decoration: none;
+        color: black;
+        &:hover,
+        &:first-child:focus {
+            color: $black-50;
+        }
+    }
+}
+
+.sub-col h2:last-child {
+    border: none;
+}
+
+.sub-col p {
+    font-family: $heur;
+    line-height: 1.25em;
+    letter-spacing: .025em;
+    margin-bottom: 10px;
+}
+
+
+
+
+
