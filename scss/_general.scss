@@ -24,6 +24,15 @@ header {
     width: 100%;
     padding-top: 30px;
     position: relative;
+    background-color: $yellow;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8000;
+    transition: all 0.3s ease-in-out;
 }
 
 header img {
@@ -36,30 +45,6 @@ header img {
 //    left: 50%;
 //    transform: translate(-50%, 0);
 }
-
-//header .follow-us {
-//    display: block;
-//    float: left;
-//    width: 200px;
-//    height: 60px;
-//    padding: 10px;
-//    border: 1px solid black;
-//} 
-//
-//header .follow-us h3 {
-//    font-family: $frank-demi; 
-//    text-align: center;
-//    margin-bottom: 10px; 
-//} 
-//
-//header .follow-us .icons {
-//    display: flex;
-//    justify-content: center;
-//}
-//
-//header .follow-us .icons .fa {
-//    font-size: 1.75em;
-//}
 
 .border {
     width: 100%;
@@ -97,7 +82,7 @@ nav button {
     letter-spacing: .1em;
     cursor: pointer;
     &:hover,
-    &:first-child:focus {
+    &:focus {
         color: $black-50;
     }
 }
@@ -106,12 +91,6 @@ nav .fa {
     margin-left: 10px;
 }
 
-// menu
-//.no-js .menu {
-//        height: auto;
-//    }
-
-
 
 header .menu {
 //    width: 84.033613445%; // 1600 / 1904
@@ -119,6 +98,7 @@ header .menu {
     margin: 2px auto 0;
     height: 0px;
     overflow: hidden;
+    background-color: $yellow;
     transition: all 0.3s ease;
 }
 
@@ -167,6 +147,10 @@ main {
     margin: 30px auto;
 }
 
+figure img {
+    display: block;
+}
+
 figcaption {
     font-family: $robo;
     font-weight: 300;
@@ -184,11 +168,12 @@ figcaption {
     line-height: 1.25em;
     letter-spacing: .025em;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 
-.col p:nth-of-type(1n+4) {
-    display: none;
-}
+//.col p:nth-of-type(1n+4) {
+//    display: none;
+//}
 
 .col p span {
     font-weight: bold;
@@ -197,16 +182,40 @@ figcaption {
 
 .contents {
     margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contents:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 80%,#e1b451 100%);
+    bottom: 0;
+}
+
+.side-01 .contents {
+    height: 736px;
+}
+
+.col-main .contents {
+    height: 300px;
+}
+
+.side-02 .contents {
+    height: 706px;
 }
 
 // read more button styles //
 
 .read-more {
-    height: 40px
+    height: 40px;
 }
 
 .read-more a {
-    display: inline-block;
+    display: block;
+    text-align: center;
     font-family: $robo;
     font-weight: 300;
     text-transform: uppercase;
@@ -245,7 +254,7 @@ figcaption {
     padding: 0 12px;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -22px);
+    transform: translate(-50%, -18px);
 }
 
 // --- HEADLINES --- //
@@ -253,7 +262,7 @@ figcaption {
 .headlines {
     display: flex;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .col-main {
@@ -324,7 +333,7 @@ figcaption {
 }
 
 .title .info p {
-    font-size: 0.85em;
+    font-size: 1em;
     font-family: $robo;
     font-weight: 300;
     margin-bottom: 0;
@@ -332,7 +341,6 @@ figcaption {
 }
 
 .title .info p:first-child {
-    font-size: 1em;
     font-weight: 500;
 }
 
@@ -381,14 +389,10 @@ figcaption {
 
 .stories figcaption {
     border: none;
-    &:hover,
-    &:first-child:focus {
-        background-color: $black-15;
-    }
 }
 
 
-// --- NEWS --- //
+// --- NEWS / SPORTS / BUSINESS --- //
 
 .lead-col {
     display: flex;
@@ -410,6 +414,10 @@ figcaption {
     width: 23.333333333%; // 300px - 20px / 1200px
 }
 
+.sub-col .contents {
+    height: 73.684210526%; // 420px / 570px
+}
+
 .sub-col h2 {
     font-family: $frank-demi;
     text-transform: uppercase;
@@ -419,9 +427,10 @@ figcaption {
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid black; 
-    a{
+    a {
         text-decoration: none;
         color: black;
+        transition: .2s ease;
         &:hover,
         &:first-child:focus {
             color: $black-50;
@@ -433,11 +442,144 @@ figcaption {
     border: none;
 }
 
+.sub-01 h2 {
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
 .sub-col p {
     font-family: $heur;
     line-height: 1.25em;
     letter-spacing: .025em;
     margin-bottom: 10px;
+}
+
+// --- FOOTER --- //
+
+
+footer {
+    border-top: 2px solid black;
+    padding: 30px 50px;
+    display: flex;
+}
+
+// left footer //
+
+.foot-left {
+    width: 60%;
+}
+
+.foot-left > a {
+    font-family: $frank-demi;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    letter-spacing: .05em;
+    line-height: 1.1em;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
+    color: black;
+    &:hover,
+    &:focus {
+        color: $black-50;
+    }
+}
+
+.credits {
+    display: flex;
+    margin-top: 15px;
+}
+
+.credits li {
+    font-family: $robo;
+    font-size: .85em;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 0 10px; 
+    border-left: 1px solid black;   
+}
+
+.credits li:first-child {
+    padding: 0 10px 0 0; 
+    border-left: none;
+}
+
+.credits li a {
+    color: black;
+    text-decoration: none;
+    transition: .3s ease;
+    &:hover,
+    &:focus {
+        background-color: $black-15;
+    }
+}
+
+.footer-nav {
+    margin-top: 15px;
+    display: flex;
+}
+
+.footer-nav li {
+    padding: 0 10px;   
+}
+
+.footer-nav li:first-child {
+    padding: 0 10px 0 0;   
+}
+
+.footer-nav li a {
+    display: inline-block;
+    color: black;
+    font-family: $robo;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 1em;
+    transition: height 0.2s ease;
+    &:hover,
+    &:focus{
+        background-color: $black-15;
+    }
+}
+
+
+// right footer //
+
+.foot-right {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.follow-us {
+    display: block;
+    float: left;
+    width: 200px;
+    padding: 15px 35px;
+    border: 1px solid black;
+} 
+
+.follow-us h3 {
+    font-family: $frank-demi;
+    font-size: 1.75em;
+    text-align: center;
+    margin-bottom: 10px; 
+} 
+
+.follow-us .icons {
+    display: flex;
+    justify-content: space-between;
+    a {
+        color: black;
+    }
+}
+
+.follow-us .icons .fa {
+    font-size: 1.75em;
+    margin: 5px 0 10px 0;
+    &:hover,
+    &:focus {
+        color: $black-50;
+    }
 }
 
 
