@@ -134,14 +134,12 @@ header {
   width: 100%;
   padding-top: 30px;
   position: relative;
-  background-color: #E1B451; }
+  background-color: #E1B451;
+  transition: top 0.2s ease-in-out;
+  z-index: 500; }
 
-.fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 8000;
-  transition: all 0.3s ease-in-out; }
+.nav-up {
+  top: -150px; }
 
 header img {
   display: block;
@@ -152,15 +150,14 @@ header img {
 .border {
   width: 100%;
   border-top: 2px dotted black;
-  border-bottom: 2px solid black;
-  box-shadow: 2px 2px; }
+  border-bottom: 2px solid black; }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 36px;
-  width: 63.025210084%;
+  width: 1200px;
   margin: 0 auto;
   text-transform: uppercase; }
 
@@ -185,8 +182,8 @@ nav .fa {
   margin-left: 10px; }
 
 header .menu {
-  width: 63.025210084%;
-  margin: 2px auto 0;
+  width: 1200px;
+  margin: 0 auto;
   height: 0px;
   overflow: hidden;
   background-color: #E1B451;
@@ -203,6 +200,7 @@ header .menu ul {
 header .menu li {
   width: 100%;
   text-align: center;
+  background-color: #E1B451;
   border-right: 2px solid #E1B451; }
 
 header .menu li:last-child {
@@ -211,6 +209,7 @@ header .menu li:last-child {
 header .menu a {
   display: block;
   background-color: rgba(0, 0, 0, 0.15);
+  padding: 0 5px;
   color: black;
   font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
   font-weight: 300;
@@ -223,7 +222,7 @@ header .menu a {
     height: 75px; }
 
 main {
-  width: 63.025210084%;
+  width: 1200px;
   margin: 30px auto; }
 
 figure img {
@@ -254,41 +253,6 @@ figcaption {
   overflow: hidden;
   position: relative; }
 
-.contents:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 80%, #e1b451 100%);
-  bottom: 0; }
-
-.side-01 .contents {
-  height: 736px; }
-
-.col-main .contents {
-  height: 300px; }
-
-.side-02 .contents {
-  height: 706px; }
-
-.read-more {
-  height: 40px; }
-
-.read-more a {
-  display: block;
-  text-align: center;
-  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  color: black;
-  line-height: 40px;
-  border-top: 1px solid black;
-  transition: .3s ease; }
-  .read-more a:hover, .read-more a:focus {
-    background-color: rgba(0, 0, 0, 0.15); }
-
 .section {
   position: relative;
   border-top: 2px dotted black;
@@ -314,21 +278,70 @@ figcaption {
 .headlines {
   display: flex;
   width: 100%;
-  margin-bottom: 80px; }
+  height: 960px;
+  margin-bottom: 50px;
+  position: relative; }
+
+.col {
+  position: relative;
+  height: 100%;
+  overflow: hidden; }
 
 .col-main {
+  position: relative;
   width: 50%;
-  padding: 0 15px; }
+  margin: 0 01.25%; }
 
-.col-side,
-.col-side {
-  width: 25%; }
+.col-main:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 85%, #e1b451 95%);
+  bottom: 0; }
 
 .side-01 {
-  padding-right: 15px; }
+  margin-right: 01.25%;
+  width: 25%; }
 
 .side-02 {
-  padding-left: 15px; }
+  margin-left: 01.25%;
+  width: 25%; }
+
+.ad_container_tablet_down {
+  display: none;
+  overflow: auto; }
+
+.side-01:after,
+.side-02:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 85%, #e1b451 95%);
+  bottom: 0; }
+
+.read-more {
+  height: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 500; }
+
+.read-more a {
+  display: block;
+  text-align: center;
+  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: black;
+  line-height: 40px;
+  border-top: 1px solid black;
+  transition: .3s ease; }
+  .read-more a:hover, .read-more a:focus {
+    background-color: rgba(0, 0, 0, 0.15); }
 
 .col-main .title h1 {
   font-family: "Heuristica", Georgia, Times, "Times New Roman", serif;
@@ -394,7 +407,14 @@ figcaption {
   font-style: italic;
   font-weight: bold;
   position: absolute;
-  right: 0; }
+  right: 0;
+  z-index: 300; }
+
+.trending-link img:hover,
+.trending-link img:focus {
+  -webkit-filter: opacity(0.75);
+  filter: opacity(0.75);
+  transition: all .4s ease; }
 
 .stories figcaption {
   border: none; }
@@ -415,9 +435,6 @@ figcaption {
 
 .sub-col {
   width: 23.333333333%; }
-
-.sub-col .contents {
-  height: 73.684210526%; }
 
 .sub-col h2 {
   font-family: "Franklin Gothic Demi Cond", "Arial Narrow", Arial, sans-serif;
@@ -447,6 +464,25 @@ figcaption {
   line-height: 1.25em;
   letter-spacing: .025em;
   margin-bottom: 10px; }
+
+.sub-01 .read-more {
+  height: 40px;
+  position: static; }
+
+.sub-01 .read-more a {
+  display: inline-block;
+  text-align: center;
+  font-family: "Roboto", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: black;
+  line-height: 40px;
+  border-top: 1px solid black;
+  transition: .3s ease; }
+  .sub-01 .read-more a:hover, .sub-01 .read-more a:focus {
+    background-color: rgba(0, 0, 0, 0.15); }
 
 footer {
   border-top: 2px solid black;
@@ -542,5 +578,72 @@ footer {
   margin: 5px 0 10px 0; }
   .follow-us .icons .fa:hover, .follow-us .icons .fa:focus {
     color: rgba(0, 0, 0, 0.5); }
+
+@media screen and (max-width: 1350px) {
+  nav {
+    width: 90%; }
+
+  header .menu {
+    width: 90%; }
+
+  main {
+    padding: 0 50px;
+    width: 100%; } }
+@media screen and (max-width: 1200px) {
+  .headlines {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 50px;
+    position: relative; }
+
+  .col-main {
+    width: 73.229917%;
+    margin: 0;
+    order: -1; }
+
+  .side-01 {
+    width: 23.333333333%;
+    margin-right: 0;
+    height: 490px;
+    margin-bottom: 20px; }
+
+  .side-02 {
+    width: 23.333333333%;
+    margin-left: 0;
+    height: 490px; }
+
+  .side-01:after,
+  .side-02:after {
+    background: linear-gradient(to bottom, transparent 74%, #e1b451 89%); } }
+@media screen and (max-width: 1000px) {
+  .section .stories {
+    flex-wrap: wrap; }
+
+  .lead-col {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-bottom: 1px solid black; }
+
+  .lead-col h2 {
+    text-align: center;
+    margin-bottom: 25px; }
+
+  .lead-col figure {
+    width: 72.398190045%;
+    margin: 0 auto; }
+
+  .lead-col figure figcaption {
+    margin-bottom: 10px; }
+
+  .lead-col img {
+    display: block;
+    margin: 0 auto; }
+
+  .sub-col {
+    width: 46.606334841%; } }
 
 /*# sourceMappingURL=styles.css.map */

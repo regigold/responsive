@@ -1,1 +1,121 @@
 // --- MEDIA QUERIES --- //
+@media screen and (max-width: 1350px) {
+    
+    nav {
+        width: 90%;
+    }
+    
+    header .menu {
+        width: 90%; 
+
+    }
+    
+    main {
+        padding: 0 50px;
+        width: 100%;
+    } 
+}
+
+@media screen and (max-width: 1200px) {
+    .headlines {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-between;
+        width: 100%;
+        height: 1000px;
+        margin-bottom: 50px;
+        position: relative;
+    } 
+    
+    .col-main {
+        width: 73.229917%;
+//        margin: 0 01.385041551% 0 0; // 15px / 1083px
+        margin: 0;
+        order: -1;
+    }
+    
+    .side-01 {
+//        margin-right: 01.385041551%; // 15px / 1083px
+        width: 23.333333333%; // 300px - 20px / 1200px
+        margin-right: 0;
+        height: 490px;
+        margin-bottom: 20px;
+    }
+    
+    .side-02 {
+//        margin-left: 01.385041551%; // 15px / 1083px
+        width: 23.333333333%; // 300px - 20px / 1200px
+        margin-left: 0;
+        height: 490px;
+    }
+
+    .side-01:after,
+    .side-02:after{
+        background: linear-gradient(to bottom, transparent 74%, #e1b451 89%);
+    }
+    
+    // append around //
+//    .ad {
+//		width: 31.33%;
+//		margin-left: 3%;
+//		float: left;
+//		padding-top: 0;
+//		padding-bottom: 0;
+//		border-bottom: none;	
+//	}
+//	
+//	.ad:first-child {
+//		margin-left: 0;	
+//	}
+//	
+//	.ad_container_tablet_down {
+//		display: block;	
+//	}
+//	
+//	.ad_container_desktop_up {
+//		display: none;	
+//	}
+//    
+//    .no_js .ad_container_desktop_up {
+//		display: block;	
+//	}
+}
+
+@media screen and (max-width: 1000px) {  
+    
+    .section .stories {
+        flex-wrap: wrap;
+    }
+    
+    .lead-col {
+        width: 100%;
+        margin: 0 auto 30px;
+        border-bottom: 1px solid black;
+    }
+    
+    .lead-col h2 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .lead-col figure {
+        width: 72.398190045%; // 640 / 884
+        margin: 0 auto;
+    }
+    
+    .lead-col figure figcaption {
+       margin-bottom: 10px;
+    }
+    
+    .lead-col img {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .sub-col {
+        width: 46.606334841%;
+    }
+
+    
+}
