@@ -2,15 +2,12 @@
 
 body {
     background-color: $yellow;
-//    padding-top: 150px;
     
     ::-moz-selection { /* Code for Firefox */
-//        color: $yellow;
         background-color: $black-15;
     }
 
     ::selection {
-//        color: $yellow;
         background-color: $black-15;
     }
     
@@ -26,9 +23,6 @@ header {
     padding-top: 30px;
     position: relative;
     background-color: $yellow;
-//    height: 150px;
-//    position: fixed;
-//    top: 0;
     transition: top 0.2s ease-in-out;
     z-index: 500;
 }
@@ -43,10 +37,6 @@ header img {
     height: 50px;
     margin: 0 auto  30px;
     padding-left: 10px;
-//    position: absolute;
-//    top: 30px;
-//    left: 50%;
-//    transform: translate(-50%, 0);
 }
 
 .border {
@@ -60,8 +50,6 @@ nav {
     align-items: center;
     justify-content: space-between;
     height: 36px;
-//    width: 84.033613445%; // 1600 / 1904
-//    width: 63.025210084%; // 1200 / 1904
     width: 1200px;
     margin: 0 auto;
     text-transform: uppercase;
@@ -92,10 +80,71 @@ nav .fa {
     margin-left: 10px;
 }
 
+// search //
 
-header .menu {
-//    width: 84.033613445%; // 1600 / 1904
-//    width: 63.025210084%; // 1200 / 1904 
+.form-wrapper {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.form {
+        width: 100%;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $yellow;
+        overflow: hidden;
+        transition: height .3s ease;
+    }
+    
+    input {
+        height: 30px;
+        border-radius: 0;
+        border-style: none;
+        font-size: .9em;
+        height: 30px;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
+    
+    .search {
+        width: 100%;
+        font-family: $robo;
+        font-weight: 300;
+        padding: 5px;
+        background-color: $black-15;
+        border: 1px solid $black-15;
+    }
+    
+    .submit {
+        font-family: $frank-demi;
+        color: $yellow;
+        font-weight: 500;
+        padding: 5px 10px;
+        background-color: black;
+        &:hover,
+        &:focus {
+            background-color: $black-50;
+        }
+        &:active {
+            color: $black-50;
+            background-color: transparent;
+            border: 1px solid $black-50;
+        }
+    }
+    
+    .close-search {
+        height: 0px;
+    }
+    
+    .open-search {
+        height: 75px;
+    }
+
+// menu //
+
+.menu {
     width: 1200px;
     margin: 0 auto ;
     height: 0px;
@@ -104,29 +153,28 @@ header .menu {
     transition: all 0.3s ease;
 }
 
-header .open {
+.open-nav {
     height: 75px;
-    transition: all 0.5s ease;
-//    background: linear-gradient(to top, rgba(0,0,0,0) 0%,#e1b451 100%);
+
     }
 
-header .menu ul {
+.menu ul {
     display: flex;
     justify-content: space-between;
 } 
 
-header .menu li {
+.menu li {
     width: 100%;
     text-align: center;
     background-color: $yellow;
     border-right: 2px solid $yellow;
 }
 
-header .menu li:last-child {
+.menu li:last-child {
     border-right: none;
 }
 
-header .menu a {
+.menu a {
     display: block;
     background-color: $black-15;
     padding: 0 5px;
@@ -147,8 +195,6 @@ header .menu a {
 // --- MAIN GLOBAL VARIABLES--- //
 
 main {
-    //width: 84.033613445%; // 1600 / 1904
-    //width: 63.025210084%; // 1200 / 1904
     width: 1200px;
     margin: 30px auto;
 }
@@ -176,10 +222,6 @@ figcaption {
     margin-bottom: 10px;
     overflow: hidden;
 }
-
-//.col p:nth-of-type(1n+4) {
-//    display: none;
-//}
 
 .col p span {
     font-weight: bold;
@@ -245,7 +287,8 @@ figcaption {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 85%,#e1b451 95%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 85%, #e1b451 95%);
+    background: -webkit-linear-gradient(top, transparent 85%, #e1b451 95%);
     bottom: 0;
 }
 
@@ -272,6 +315,7 @@ figcaption {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 85%,#e1b451 95%);
+    background: -webkit-linear-gradient(top, transparent 85%, #e1b451 95%);
     bottom: 0;
 }
 
@@ -360,51 +404,6 @@ figcaption {
     }
 }
 
-
-// --- TRENDING --- //
-
-.stories {
-    display: flex;
-    margin-top: 40px;
-    justify-content: space-between;
-}
-
-.trending .stories article {
-    display: flex;
-    flex-direction: column;
-    width: 23.333333333%; // 300px - 20px / 1200px
-}
-
-
-.trending .stories article figure {
-    position: relative;
-}
-
-.stories article h3 {
-    display: inline-block;
-    padding: 5px;
-    background-color: $yellow;
-    font-family: $heur;
-    letter-spacing: .1em;
-    font-style: italic;
-    font-weight: bold;
-    position: absolute;
-    right: 0;
-    z-index: 300;
-}
-
-.trending-link img:hover,
-.trending-link img:focus {
-    -webkit-filter: opacity(.75);
-    filter: opacity(.75);
-    transition: all .4s ease;
-}
-
-.stories figcaption {
-    border: none;
-}
-
-
 // --- NEWS / SPORTS / BUSINESS --- //
 
 .lead-col {
@@ -423,13 +422,16 @@ figcaption {
     margin-bottom: 10px;
 }
 
+.lead-col img:hover,
+.lead-col img:focus {
+    -webkit-filter: opacity(.8);
+    filter: opacity(.8);
+    transition: all .3s ease;
+}
+
 .sub-col {
     width: 23.333333333%; // 300px - 20px / 1200px
 }
-
-//.sub-col .contents {
-//    height: 73.684210526%; // 420px / 570px
-//}
 
 .sub-col h2 {
     font-family: $frank-demi;
@@ -490,6 +492,49 @@ figcaption {
     &:focus {
         background-color: $black-15;
     }
+}
+
+// --- TRENDING --- //
+
+.stories {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.trending .stories article {
+    display: flex;
+    flex-direction: column;
+    width: 23.333333333%; // 300px - 20px / 1200px
+}
+
+
+.trending .stories article figure {
+    position: relative;
+}
+
+.stories article h3 {
+    display: inline-block;
+    padding: 5px;
+    background-color: $yellow;
+    font-family: $heur;
+    letter-spacing: .1em;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    z-index: 300;
+}
+
+.trending-link img:hover,
+.trending-link img:focus {
+    -webkit-filter: opacity(.8);
+    filter: opacity(.8);
+    transition: all .3s ease;
+}
+
+.stories figcaption {
+    border: none;
 }
 
 // --- FOOTER --- //
@@ -620,7 +665,11 @@ footer {
     }
 }
 
+// --- mobile nav --- //
 
+.mobile-nav {
+    display: none;
+}
 
 
 
